@@ -26,6 +26,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"status": "healthy", "service": "Self-Correcting Web Scraper API"}
+
 job_states: Dict[str, dict] = {}
 graph = build_graph()
 
